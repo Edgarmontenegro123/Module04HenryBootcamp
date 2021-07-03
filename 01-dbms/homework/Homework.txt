@@ -1,0 +1,106 @@
+Link para verlo de manera visual!!! 
+https://lucid.app/lucidchart/invitations/accept/inv_990802ab-c045-4b74-aa73-6401c39ba11b?viewport_loc=-332%2C500%2C2175%2C984%2CVsmzMl_wMwC9
+ 
+
+
+Cardinalidades
+
+1 ------- 1 : Uno a Uno
+1 ------- N : Uno a Muchos (*)
+N ------- M : Muchos a Muchos -----> tenemos dos tablas o relaciones y vamos a necesitar tablas intermedias
+
+* Instagram *
+Usuarios
+Publicaciones
+Imágenes
+Likes
+Comentarios
+Seguidos
+Seguidores
+Etiquetas
+
+
+Seguidores      Seguidos  <------- (esto sería una relación)
+*               *
+|               |
+|               |
+|               |
+* ------------- * 
+|
+Usuario 1 --- crea --- * Publicaciones 1 --- * Imagenes
+|   |                       |  |                   | 
+|   * ----- Etiquetas ----- *  | <--- (relación)   |
+|   |                          |                   | 
+|   |                          |                   | 
+|   |                          |                   | 
+|   |                          |                   | 
+|   |                          |                   * 
+|   1 ----------------- * Comentarios 1 -------- * Likes
+|                              |                   |
+1 ---------------------------- *                   |                             
+|                                                  |
+1 ------------------------------------------------ *  
+
+Usuario
+id  Username    Password    Email               Description     Sigue a -->
+1    User         Pass1      1@gmail.com         Bla Bla Bla      2
+2    User         Pass2      2@outlook.com       Bla Bla Bla      1
+3    User         Pass3      3@yahoo.com         Bla Bla Bla      2
+
+Seguidores / Seguidos (Relación de muchos a muchos)
+
+User1       user2 (seguido)
+ 1             2
+ 2             1
+ 3             2
+
+
+Publicacion
+Id      UserId      CommentId       LikeId      Date    Description
+ 1         1
+
+Etiquetado
+PublicacionId       UserId
+
+
+ImagenPublicacion
+ImageId     PublicacionId
+    1           1
+    2           1
+
+Comentario
+Id      UserId          Text             PublicacionId
+ 1         1              Awesome!         1
+
+
+User = {
+    Username:
+    Password:
+    Email:
+    Description:
+}
+
+Publicacion = {
+    Imagenes:
+    UsuarioAsociado:
+    Comentarios:
+    Likes:
+    Etiquetas:
+    Date:
+    Description:
+}
+
+Imagen = {
+    File:
+}
+
+Comentarios = {
+    Quien lo hizo?
+    Date:
+    Text:
+}
+
+Like = {
+    Quien lo hizo?
+    Date:
+}
